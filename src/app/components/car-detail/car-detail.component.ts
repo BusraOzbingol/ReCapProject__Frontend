@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
+import { AuthService } from 'src/app/services/auth.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -14,10 +16,15 @@ export class CarDetailComponent implements OnInit {
   car: Car;
   images: CarImage[];
   imageUrl = 'https://localhost:44321/'
+  rentalControl = false;
+  rentalMessage="";
   constructor(
+    private authService:AuthService,
     private activatedRoute: ActivatedRoute,
     private carImageService: CarImageService,
-    private carService: CarService
+    private carService: CarService,
+    private rentalService: RentalService,
+    
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +32,7 @@ export class CarDetailComponent implements OnInit {
       if (params['carId']) {
         this.getCarDetail(params['carId']);
         this.getCarImagesByCarId(params['carId']);
-        //this.getCarImagesByCarId();
+        this.getRentalControl(params["carId"])
       }
     });
   }
@@ -52,5 +59,14 @@ export class CarDetailComponent implements OnInit {
     } else {
       return 'carouse1-item';
     }
+  }
+  isAuthenticated(){
+    return this.authService.isAuthenticated()
+  }
+  getRentalControl(carId:number) {
+    this.rentalService.getRentalControl(carId).subscribe((response) => { 
+      this.rentalControl=response.success;
+      this.rentalMessage=response.message; 
+    });
   }
 }
