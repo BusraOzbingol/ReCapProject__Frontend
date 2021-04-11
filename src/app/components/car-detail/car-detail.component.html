@@ -1,0 +1,98 @@
+<br />
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="carousel-inner">
+        <div
+        >
+          <img
+
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      
+      <table class="table table-success table-striped">
+        <tbody >
+          
+
+          <tr>
+            <th scope="row">Marka</th>
+            <td> brandName</td>
+          </tr>
+          <tr>
+            <th scope="row">Renk</th>
+            <td> colorName </td>
+          </tr>
+          <tr>
+            <th scope="row">Açıklama</th>
+            <td> description </td>
+          </tr>
+          <tr>
+            <th scope="row">Fiyat</th>
+            <td>dailyPrice | currency: "TL":"₺" </td>
+          </tr>
+         <tr>
+          <th scope="row">Alış Tarihi</th>
+           <td>
+            <div class="form-group row">
+              <label for="example-date-input"  class="col-2 col-form-label"></label>
+              <div >
+                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+              </div>
+            </div>
+            
+           </td>
+         </tr>
+         <tr>
+          <th scope="row">Teslim Tarihi</th>
+          
+           <td>
+            <div class="form-group row">
+              <label for="example-date-input"  class="col-2 col-form-label"></label>
+              <div >
+                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+              </div>
+            </div>
+            
+           
+           </td>
+         </tr>
+         <tr>
+           <th scope="row"></th>
+          <td><div class="card-body" *ngIf="isAuthenticated()" >
+            <section style="float:left">
+              <button   type="button" routerLink="/rent"  class="btn btn-success btn-lg" >Kirala</button>
+             
+            </section>
+          </div>
+        
+        </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="card-body" *ngIf="!isAuthenticated()" >
+           <section >
+             <button type="button" routerLink="/login" class="btn btn-danger">Kiralamak İçin Giriş Yapın</button>
+           </section>
+         </div>
+        
+          </th>
+         <td>
+          <div class="card-body" *ngIf="!isAuthenticated()" >
+            <section >
+              <button type="button" routerLink="/register" class="btn btn-danger">Üye Değilseniz Kayıt Olun</button>
+            </section>
+          </div>
+
+         </td>
+       </tr>
+        </tbody>
+      </table>
+      <hr />
+   </div>
+   </div>
+    </div>
+
