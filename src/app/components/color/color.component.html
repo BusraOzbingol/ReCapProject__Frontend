@@ -1,0 +1,27 @@
+<div *ngIf="dataLoaded == false" class="spinner-border text-info m-2" role="status"></div>
+
+<div class="m-3">
+    <label for="exampleFormControlInput1" class="form-label" style="color:rgb(74, 141, 7);">Renk Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        style="border-radius: 10px; border-color: rgb(74, 141, 7);" placeholder="renk girin">
+</div>
+<div *ngIf="filterText.length>2" class="alert-warning m-2">
+    {{filterText}} searching...
+</div>
+
+<ul *ngIf="dataLoaded == true" class="list-group list-group-flush m-4">
+
+    <h4 class="ps-2">
+        Colors
+    </h4>
+
+    <li 
+        *ngFor="let color of colors | filterColor:filterText" [class]="getColorClass(color)">
+        {{ color.colorName }}
+    </li>
+
+    <button routerLink="/cars" (click)="clearFilter()" type="button" aria-current="true"
+        class="btn btn-outline-secondary">
+        Clear Filter
+    </button>
+</ul>
