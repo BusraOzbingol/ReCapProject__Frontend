@@ -1,16 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ListResponseModel } from '../models/listResponseModel';
+import { Register } from '../models/register';
+import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
+import { User } from '../models/user';
+import { LocaleStorageServiceService } from './locale-storage-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  apiUrl =  'https://localhost:44321/api/'
+  apiUrl =  'https://localhost:44321/api/';
 
 
   constructor(
-    private httpClient: HttpClient, private localeStorageService:LocaleStorageService
+    private httpClient: HttpClient, private localeStorageService:LocaleStorageServiceService
   ) { }
   
   getClaims(user:User):Observable<ListResponseModel<User>>{

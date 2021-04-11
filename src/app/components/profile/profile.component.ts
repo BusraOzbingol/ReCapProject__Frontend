@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Register } from 'src/app/models/register';
-import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-profile',
