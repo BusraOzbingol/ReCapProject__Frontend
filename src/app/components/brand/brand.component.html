@@ -1,11 +1,11 @@
-<ul class="list-group">
-  <li  [class]="getAllBrandClass()" routerLink = "/cars">Tüm Ürünler</li>
-  <li (click)="setCurrentBrand(brand)"
-  routerLink = "/cars/brand/{{brand.brandId}}"
-  *ngFor="let brand of brands"
-  [class]="getCurrentBrandClass(brand)">
-  {{brand.brandName}}</li>
-</ul>
-
-<h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
-
+<div class="my-1">
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterBrand" placeholder="Marka ara...">
+</div>
+<li [class] = "getAllBrandClass()" routerLink = "/cars">Tüm Araçlar</li>
+<ul  class="list-group">
+    <li (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{brand.brandId}}"
+     *ngFor="let brand of brands | filterBrand:filterText" 
+     [class]="getCurrentBrandClass(brand)"
+     class="list-group-item" >{{brand.brandName}}</li>
+  </ul>

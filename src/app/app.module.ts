@@ -25,6 +25,7 @@ import { InformationComponent } from './components/information/information.compo
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
     InformationComponent,
     CarDetailComponent,
     BrandAddComponent,
-    ColorAddComponent
+    ColorAddComponent,
+    ProfileComponent
   ],
   imports: [ BrowserModule,
     AppRoutingModule,
