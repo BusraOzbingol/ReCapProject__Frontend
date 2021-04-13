@@ -1,38 +1,71 @@
-<body class="text-center">
-    <main class="form-signin">
-      <form [formGroup]="loginForm">
-        <h1 class="h3 mb-3 fw-normal">Giriş yap</h1>
-  
-        <div class="form-floating">
-          <input
-            formControlName="email"
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">E-posta</label>
+
+<div  *ngIf="!isAuthenticated() ">
+
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5"></div>
         </div>
-        <div class="form-floating">
-          <input
-          formControlName="password"
-            type="password"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Parola</label>
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10">
+            <div class="wrap d-md-flex">
+              <div
+                class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last"
+              >
+                <div class="text w-100">
+                  <h2>Hoşgeldiniz, Lütfen Giriş Yapın</h2>
+                  <p>Kayıt olmadınız mı?</p>
+                  <a routerLink="/register" class="btn btn-white btn-outline-white">Kayıt ol</a>
+                </div>
+              </div>
+              <div class="login-wrap p-4 p-lg-5">
+                <div class="d-flex">
+                  <div class="w-100">
+                    <h3 class="mb-4">Giriş Yap</h3>
+                  </div>
+                </div>
+                <form [formGroup]="loginForm" class="signin-form">
+                  <div class="form-group mb-3">
+                    <label class="label" for="floatingInput">E-posta</label>
+                    <input
+                      formControlName="email"
+                      type="email"
+                      id="floatingInput"
+                      class="form-control"
+                      placeholder="eposta@eposta.com"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="label" for="floatingPassword">Parola</label>
+                    <input
+                      formControlName="password"
+                      type="password"
+                      class="form-control"
+                      id="floatingInput"
+                      placeholder="Password"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <button
+                      type="submit"
+                      (click)="login()"
+                      class="form-control btn btn-primary submit px-3"
+                    >
+                      Giriş Yap
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-  
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" (click)="login()">
-          Giriş yap
-        </button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-      </form>
-    </main> 
-  </body>    
+      </div>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>

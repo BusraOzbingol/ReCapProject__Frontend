@@ -1,11 +1,11 @@
 <div class="my-1">
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterColor" placeholder="Renk ara...">
   </div>
-  <li [class] = "getAllColorClass()" routerLink = "/cars">Tüm Renkler</li>
+  <li [class] = "getAllColorClass()" routerLink = "/colors">Tüm Renkler</li>
   <ul class="list-group">
   
       <li (click)="setCurrentColor(color)"
        *ngFor="let color of colors | filterColor:filterText" 
-       [class]=" getColorClass(color)" routerLink="/cars/color/{{color.colorId}}"
-       class="list-group-item list-group-item-danger">{{color.colorName}}</li>
+       [class]=" getColorClass(color)" routerLink="/cars/colors/{{color.colorId}}"
+       class="list-group-item">{{color.colorName}}</li>
     </ul>
